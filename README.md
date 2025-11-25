@@ -206,3 +206,54 @@ Step-by-step:
 7️⃣ Event Loop executes your callback in JavaScript
 ➡️ Your code continues smoothly
 
+
+# What is a Thread Pool in Node.js?
+
+Node.js is known as a single-threaded environment (because your JavaScript runs on one main thread),
+BUT Node.js internally uses multiple threads for heavy work.
+
+These threads live in something called the Thread Pool.
+
+Thread Pool = A group of background threads used by Node.js to handle slow or blocking tasks.
+
+
+
+## Why does Node.js need a Thread Pool?
+
+Because JavaScript is single-threaded,
+if Node.js only used one thread, slow tasks would block the entire application.
+
+Examples of slow/blocking tasks:
+
+File system operations (fs.readFile, fs.writeFile)
+
+DNS lookups
+
+Compression (zlib)
+
+Encryption (crypto.pbkdf2, crypto.scrypt)
+
+Some network tasks
+
+Instead of blocking the main thread, Node sends these tasks to the Thread Pool.
+
+## How it Works
+
+### 1. You call something like:
+```js
+fs.readFile("file.txt", callback);
+```
+
+### 2.Node cannot read the file using JavaScript alone
+→ It hands the job to libuv.
+
+### 3.libuv assigns it to one thread inside the Thread Pool.
+
+### 4.That thread performs the file operation behind the scenes.
+
+### 5.When finished, the result is sent back to the Event Loop.
+
+### 6.The Event Loop runs your callback function.
+
+
+
