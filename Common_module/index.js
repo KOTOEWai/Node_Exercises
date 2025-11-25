@@ -4,6 +4,8 @@
 // 2. Local Modules
 // 3. Third-Party Modules
 
+//================================================ // =========================================//
+
 // 1. Built-in Modules
 const fs = require('fs');
 const path = require('path');
@@ -13,7 +15,6 @@ const os = require('os');
 //console.log('Path Module:', path);
 //console.log('OS Module:', os);
 console.log('-----------------------------------');
-
 // 2. Local Modules
 const localModule = require('./localModule');
 //console.log('Local Module:', localModule);
@@ -29,14 +30,15 @@ console.log('-----------------------------------');
 // You can install it by running: npm install express
 // End of index.js
 
-
+//================================================ // =========================================//
 
 const SuperHero = require('./MoCach');
 
-const hero1 = new SuperHero('IronMan', 'Technology');
-console.log(hero1.getDetails());
-hero1.setPower('Advanced Technology');
-console.log(`Updated Power: ${hero1.getPower()}`);
+
+const IronMan = new SuperHero('IronMan', 'Technology');
+console.log(IronMan.getDetails());
+IronMan.setPower('Advanced Technology');
+console.log(`Updated Power: ${IronMan.getPower()}`);
 console.log('-----------------------------------');
 
 const Batman = new SuperHero('Batman', 'Martial Arts');
@@ -44,6 +46,9 @@ console.log(Batman.getDetails());
 Batman.setName('The Dark Knight');
 console.log(`Updated Name: ${Batman.getName()}`);
 console.log('-----------------------------------');
+
+//================================================ // =========================================//
+
 
 const math = require('./math');
 const { add, subtract } = math;

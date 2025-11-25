@@ -1,0 +1,13 @@
+This is an example of data stored in a text file.
+
+Name: John Doe
+Age: 25
+Occupation: Software Engineer
+
+Name: Jane Smith
+Age: 30
+Occupation: Marketing Manager
+
+Name: Bob Johnson
+Age: 35
+Occupation: Sales Representative
