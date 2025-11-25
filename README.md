@@ -99,7 +99,9 @@ This diagram illustrates how **Node.js** internally works --- from
 running JavaScript code to performing asynchronous operations using
 **Libuv**, worker threads, and the event loop.
 
-![Node.js System Diagram](./diagram.png)
+![Node.js System Diagram]
+<img width="796" height="359" alt="image" src="https://github.com/user-attachments/assets/580d7305-cd71-448d-a4f0-126c91a2be56" />
+
 
 ## 1. Node.js Application
 
