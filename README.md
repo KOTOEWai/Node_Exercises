@@ -265,4 +265,21 @@ set UV_THREADPOOL_SIZE=8
 ```
 
 
+## 🧠 Important Note
 
+Not all operations use the Thread Pool.
+
+## 🟢 Uses Thread Pool:
+
+* File system
+* DNS (some)
+* Crypto operations
+* Compression (zlib)
+
+## 🔵 Does NOT use Thread Pool:
+
+* Most network operations (handled by OS kernels)
+
+* Timers (setTimeout)
+
+* Promises / microtasks
