@@ -283,3 +283,87 @@ Not all operations use the Thread Pool.
 * Timers (setTimeout)
 
 * Promises / microtasks
+---
+
+
+## 🚀 What is the Event Loop?
+
+* The Event Loop is the “brain” of JavaScript’s runtime. Since JavaScript runs on a single thread, it cannot do many things at once by itself.
+
+But real apps need to do many things:
+
+* Read files
+
+* Make API calls
+
+* Wait for timers
+
+* Handle user input
+
+* Access databases
+
+* Network communication
+
+If JavaScript waited for each of these things blocking, the whole program would freeze.
+
+So…
+The Event Loop solves this problem.
+
+---
+
+* The Event Loop is a system inside JavaScript/Node.js that manages asynchronous tasks and decides when each callback should be executed.
+
+```js
+console.log("A");
+
+setTimeout(() => console.log("B"), 0);
+
+Promise.resolve().then(() => console.log("C"));
+
+console.log("D");
+
+```
+* Output:
+```js
+
+A
+D
+C
+B
+
+```
+
+Why?
+
+### 1.A → main code
+
+### 2.D → main code
+
+### 3.C → microtask
+
+### 4.B → macrotask (timer)
+
+This is the event loop’s scheduling.
+
+---
+* 🖥 Event Loop in Node.js vs Browser
+```
+| Feature         | Browser            | Node.js                                    |
+| --------------- | ------------------ | ------------------------------------------ |
+| Web APIs        | DOM, fetch, timers | libuv thread pool, fs, net, timers         |
+| Microtask Queue | Promises           | Promises + process.nextTick                |
+| Extra Phases    | none               | 6 phases (timers, I/O, poll, check, close) |
+```
+### Node.js event loop is more complex because it handles real network + filesystem operations.
+
+
+
+
+
+
+
+
+
+
+
+
