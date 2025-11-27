@@ -206,7 +206,7 @@ Step-by-step:
 7️⃣ Event Loop executes your callback in JavaScript
 ➡️ Your code continues smoothly
 
-
+---
 ## 🚀 What is a Thread Pool in Node.js?
 
 Node.js is known as a single-threaded environment (because your JavaScript runs on one main thread),
