@@ -102,7 +102,7 @@ running JavaScript code to performing asynchronous operations using
 <img width="796" height="359" alt="image" src="https://github.com/user-attachments/assets/580d7305-cd71-448d-a4f0-126c91a2be56" />
 
 
-## 1. Node.js Application
+## 🚀 1. Node.js Application
 
 This is the JavaScript code written by the developer.
 
@@ -207,7 +207,7 @@ Step-by-step:
 ➡️ Your code continues smoothly
 
 
-# What is a Thread Pool in Node.js?
+#🚀 What is a Thread Pool in Node.js?
 
 Node.js is known as a single-threaded environment (because your JavaScript runs on one main thread),
 BUT Node.js internally uses multiple threads for heavy work.
