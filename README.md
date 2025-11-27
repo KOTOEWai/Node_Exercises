@@ -207,7 +207,7 @@ Step-by-step:
 ➡️ Your code continues smoothly
 
 
-#🚀 What is a Thread Pool in Node.js?
+## 🚀 What is a Thread Pool in Node.js?
 
 Node.js is known as a single-threaded environment (because your JavaScript runs on one main thread),
 BUT Node.js internally uses multiple threads for heavy work.
