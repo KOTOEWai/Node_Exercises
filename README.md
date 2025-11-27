@@ -254,6 +254,15 @@ fs.readFile("file.txt", callback);
 ### 5.When finished, the result is sent back to the Event Loop.
 
 ### 6.The Event Loop runs your callback function.
+---
+## 🔢 Default Thread Pool Size
+
+* Node.js Thread Pool has 4 threads by default.
+* You can change it:
+
+```js
+set UV_THREADPOOL_SIZE=8
+```
 
 
 
