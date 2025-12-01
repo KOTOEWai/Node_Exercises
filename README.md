@@ -286,6 +286,7 @@ Not all operations use the Thread Pool.
 ---
 
 
+
 ## 🚀 What is the Event Loop?
 
 * The Event Loop is the “brain” of JavaScript’s runtime. Since JavaScript runs on a single thread, it cannot do many things at once by itself.

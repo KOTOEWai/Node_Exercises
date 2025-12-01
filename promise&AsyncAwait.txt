@@ -1,0 +1,150 @@
+ Promise ဆိုတာ ဘာလဲ?
+ ---------------------
+Promise ဆိုတာ Node.js (နဲ့ JavaScript) မှာ
+အချိန်ယူ လုပ်ဆောင်ရတဲ့ အလုပ် (asynchronous operation) တစ်ခုရဲ့ 
+နောက်ဆုံး ပြီးမြောက်မှု (သို့) မအောင်မြင်မှု နဲ့ အဲဒီက ရရှိလာတဲ့ တန်ဖိုး (value) ကို ကိုယ်စားပြုတဲ့
+object တစ်ခု ဖြစ်ပါတယ်။
+
+
+ဥပမာအားဖြင့်၊ သင် စားသောက်ဆိုင်မှာ အစားအသောက် မှာယူတာ နဲ့ တူပါတယ်။
+
+သင် အော်ဒါ မှာလိုက်တဲ့အခါ (အချိန်ယူရတဲ့ အလုပ်တစ်ခုကို စတင်လိုက်တဲ့အခါ)၊ အစားအသောက်ကို ချက်ချင်းမရပါဘူး။
+
+အစားထိုးအနေနဲ့၊ စားပွဲထိုးက သင့်ကို အော်ဒါ လက်မှတ် (Promise) တစ်ခု ပေးပါတယ်။
+
+ဒီလက်မှတ်က သင့်ကို နောက်ဆုံးမှာ အောက်ပါအတိုင်း ရလိမ့်မယ်လို့ အာမခံပေးထားပါတယ်-
+
+အလုပ် အောင်မြင်ရင်၊ သင့်ရဲ့ အစားအသောက် (fulfilled value) ကို ရပါမယ်။
+
+အလုပ် မအောင်မြင်ရင်၊ ဘာကြောင့်မရလဲဆိုတဲ့ အကြောင်းပြချက် (rejection reason/error) ကို ရပါမယ်။
+
+//////////////////////////////////////////////////////////////////////////////////////
+
+Promise ရဲ့ အခြေအနေ သုံးမျိုး (The Three States)
+
+Promise object ဟာ အမြဲတမ်း အခြေအနေ သုံးမျိုးထဲက တစ်ခုခုမှာ ရှိနေပါတယ်-
+
+Pending (စောင့်ဆိုင်းဆဲ): စတင်တဲ့ အခြေအနေပါ။ အချိန်ယူရတဲ့ အလုပ်က လုပ်ဆောင်နေဆဲဖြစ်ပါတယ်။ (အစားအသောက် စောင့်နေတာနဲ့ တူပါတယ်)
+
+Fulfilled (သို့မဟုတ် Resolved): အလုပ်က အောင်မြင်စွာ ပြီးမြောက်သွား ပါပြီ။ ရလဒ်တန်ဖိုး (result value) ကို ရရှိပါပြီ။
+
+Rejected (ပယ်ချခံရ): အလုပ်က ပျက်ကွက်သွား ပါပြီ။ ပျက်ကွက်ရတဲ့ အကြောင်းပြချက် (error) ကို သိရပါပြီ။
+
+
+
+Pending အခြေအနေကနေ Fulfilled သို့မဟုတ် Rejected ကို ပြောင်းလဲနိုင်ပါတယ်။
+ ဒါပေမဲ့ တစ်ခါ Fulfilled သို့မဟုတ် Rejected ဖြစ်သွားပြီဆိုရင် Settled (ဆုံးဖြတ်ပြီး) ဖြစ်သွားပြီး နောက်ထပ် အခြေအနေ ပြောင်းလဲမှာ မဟုတ်ပါဘူး။
+
+
+
+⚙️ How to Use Promises (အသုံးပြုပုံ)
+You attach functions to a Promise using the .then() method
+ to handle the successful result or the .catch() method to handle the failure (error).
+
+.then(onFulfilled, onRejected):
+
+The first function (onFulfilled) runs if the Promise is fulfilled.
+
+The second (optional) function (onRejected) runs if the Promise is rejected.
+
+.catch(onRejected): A shortcut for .then(null, onRejected). It's generally used to handle errors in a chain of Promises.
+
+.finally(onFinally): Runs regardless of whether the Promise was fulfilled or rejected.
+
+Promise တွေကို အသုံးပြုတဲ့အခါ၊ အောင်မြင်တဲ့ ရလဒ်ကို ကိုင်တွယ်ဖို့ .then() method ကို သုံးပြီး၊ 
+ပျက်ကွက်မှု (error) ကို ကိုင်တွယ်ဖို့ .catch() method ကို အသုံးပြုပါတယ်။
+
+.then(onFulfilled, onRejected):
+
+ပထမ function (onFulfilled) က Promise အောင်မြင် (fulfilled) တဲ့အခါ အလုပ်လုပ်ပါတယ်။
+
+ဒုတိယ function (optional) (onRejected) က Promise ပျက်ကွက် (rejected) တဲ့အခါ အလုပ်လုပ်ပါတယ်။
+
+.catch(onRejected): ဒါဟာ .then(null, onRejected) ရဲ့ အတိုကောက်ဖြစ်ပါတယ်။
+ Promise တွေ ဆက်တိုက်ချိတ်ဆက်ရာမှာ error တွေကို ကိုင်တွယ်ဖို့ အများအားဖြင့် သုံးပါတယ်။
+
+.finally(onFinally): Promise အောင်မြင်သည်ဖြစ်စေ၊ ပျက်ကွက်သည်ဖြစ်စေ အမြဲတမ်း အလုပ်လုပ်ပါတယ်။
+
+🎯 Benefit (အကျိုးကျေးဇူး)
+The main benefit of Promises is to avoid "Callback Hell"
+(nested callbacks that are difficult to read and maintain) 
+and to make asynchronous code appear and behave more like synchronous code,
+especially when using the modern async/await syntax, which is built on top of Promises.
+
+Promises ရဲ့ အဓိက အကျိုးကျေးဇူးကတော့ "Callback Hell"
+ (ဖတ်ရခက်ပြီး ထိန်းသိမ်းရခက်တဲ့ အလွှာလိုက် ထပ်နေတဲ့ callbacks တွေ) ကို ရှောင်ရှားဖို့နဲ့၊
+ခေတ်မီတဲ့ async/await syntax (Promise တွေပေါ်မှာ တည်ဆောက်ထားတာ) ကို
+ အသုံးပြုတဲ့အခါ အချိန်ယူရတဲ့ code တွေကို ရိုးရှင်းတဲ့ code တွေလို မြင်ရပြီး လုပ်ဆောင်နိုင်စေဖို့ပဲ ဖြစ်ပါတယ်။
+
+
+ =======================================================================================================================
+ =======================================================================================================================
+
+Async/await
+There’s a special syntax to work with promises in a more comfortable fashion, called “async/await”.
+ It’s surprisingly easy to understand and use.
+
+Async functions
+Let’s start with the async keyword. It can be placed before a function, like this:
+
+
+async function f() {
+  return 1;
+}
+
+
+The word “async” before a function means one simple thing: a function always returns a promise.
+ Other values are wrapped in a resolved promise automatically.
+
+For instance, this function returns a resolved promise with the result of 1; let’s test it:
+
+async function f() {
+  return 1;
+}
+
+f().then(alert); // 1
+
+
+…We could explicitly return a promise, which would be the same:
+
+async function f() {
+  return Promise.resolve(1);
+}
+
+f().then(alert); // 1
+
+So, async ensures that the function returns a promise,
+ and wraps non-promises in it. Simple enough, right? 
+ But not only that. There’s another keyword, await,
+ that works only inside async functions, and it’s pretty cool.
+
+Await
+The syntax:
+
+// works only inside async functions
+let value = await promise;
+The keyword await makes JavaScript wait until that promise settles and returns its result.
+
+Here’s an example with a promise that resolves in 1 second:
+
+async function f() {
+
+  let promise = new Promise((resolve, reject) => {
+    setTimeout(() => resolve("done!"), 1000)
+  });
+
+  let result = await promise; // wait until the promise resolves (*)
+
+  alert(result); // "done!"
+}
+
+f();
+The function execution “pauses” at the line (*) 
+and resumes when the promise settles, with result becoming its result.
+ So the code above shows “done!” in one second.
+
+Let’s emphasize: await literally suspends the function execution until the promise settles,
+ and then resumes it with the promise result. That doesn’t cost any CPU resources,
+ because the JavaScript engine can do other jobs in the meantime: execute other scripts, handle events, etc.
+
+It’s just a more elegant syntax of getting the promise result than promise.then. And, it’s easier to read and write.

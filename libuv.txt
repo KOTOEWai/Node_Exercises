@@ -17,6 +17,7 @@ Node.js ကို single-threaded လို့ပြောတယ်…
 libuv ရဲ့ Main Responsibilities (အလုပ်ချိန် 4 ခု)
 
 1️⃣ Event Loop
+
 Node.js asynchronous ဖြစ်တာဟာ libuv ရဲ့ Event Loopကြောင့်ပါ။
 
 Event Loop က
@@ -28,6 +29,7 @@ IO tasks
 callbacks
 
 promises
+
 တွေကို queue အလိုက် process ပေးတယ်။
 
 ➡️ JavaScript အလုပ်လုပ်ပုံကို control လုပ်ပြီး Fast ဖြစ်အောင်လုပ်ပေးတယ်။
