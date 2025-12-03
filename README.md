@@ -277,6 +277,7 @@ This is the event loop’s scheduling.
 ```
 ### Node.js event loop is more complex because it handles real network + filesystem operations.
 
+<img width="892" height="721" alt="image" src="https://github.com/user-attachments/assets/1da9de3c-6b3e-4c07-9454-14ebe8c840a7" />
 
 
 
