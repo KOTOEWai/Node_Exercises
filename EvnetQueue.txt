@@ -1,0 +1,58 @@
+Event Queue ဆိုတာဟာ Node.js (သို့မဟုတ် Browser JavaScript) ရဲ့ Event Loop စနစ်ထဲမှာ ပါဝင်တဲ့ အဓိက အစိတ်အပိုင်းတစ်ခု ဖြစ်ပါတယ်။
+
+အဓိပ္ပာယ်: ၎င်းကို Message Queue (သို့မဟုတ်) Callback Queue လို့လည်း ခေါ်ပါတယ်။
+ Event Queue ရဲ့ အဓိက တာဝန်ကတော့ asynchronous (အချိန်ကြာနိုင်တဲ့) လုပ်ငန်းတွေ ပြီးဆုံးသွားတဲ့အခါ 
+ လုပ်ဆောင်ရမဲ့ callback function တွေကို စီတန်းပြီး စောင့်ဆိုင်းထားတဲ့ နေရာတစ်ခု ဖြစ်ပါတယ်။
+
+
+ဘယ်လိုအလုပ်လုပ်လဲ:
+ File I/O (ဖိုင် ဖတ်တာ/ရေးတာ)၊ setTimeout() ရဲ့ အချိန်ပြည့်တာ၊ 
+ ဒါမှမဟုတ် Network request တွေကနေ Response ရတာ စတဲ့ asynchronous လုပ်ငန်းတွေ ပြီးတဲ့အခါ၊ 
+ သက်ဆိုင်ရာ callback function တွေကို Event Queue ထဲကို ဝင်ရောက် စောင့်ဆိုင်းစေပါတယ်။
+
+ဘယ်အချိန်မှာ လုပ်ဆောင်လဲ:
+Event Loop ဟာ Call Stack (သင့်ရဲ့ ပုံမှန် JavaScript code တွေ run နေတဲ့နေရာ) လုံးဝ လွတ်သွားတဲ့
+အခါမှသာလျှင် Event Queue ထဲကနေ ပထမဆုံး callback ကို ယူပြီး Call Stack ထဲကို ထည့်ကာ လုပ်ဆောင်စေတာ ဖြစ်ပါတယ်။
+
+📌 Queue အမျိုးအစားများ (Types of Queues)
+Event Queue ကို Macrotask Queue နဲ့ Microtask Queue ဆိုပြီး အဓိက (၂) မျိုး ခွဲခြားနိုင်ပါတယ်။ 
+
+၁။ Macrotask Queue (Event Queue)
+ဒါဟာ အဓိက Event Loop Phases တွေနဲ့ သက်ဆိုင်တဲ့ Queue တွေ ဖြစ်ပါတယ်။
+ Event Loop ဟာ ဒီ Macrotask Queue တွေကို တစ်အဆင့်ချင်းစီ (phase by phase) လည်ပတ်လုပ်ဆောင်ပါတယ်။
+
+ဥပမာများ:
+
+Timer Queue: setTimeout(), setInterval() callbacks များ
+
+I/O Queue: File I/O, Network I/O callbacks များ
+
+Check Queue: setImmediate() callbacks များ
+
+
+၂။ Microtask Queue
+ဒါကတော့ Event Loop အဆင့်တွေကြားမှာ ပိုပြီး ဦးစားပေး ရှင်းလင်းလုပ်ဆောင်ရတဲ့ Queue တွေ ဖြစ်ပါတယ်။
+ Event Loop အဆင့်တစ်ခု ပြီးတိုင်း၊ Macrotask အသစ်ကို မစခင် Microtask Queue ကို အရင်ဆုံး အားလုံး ရှင်းလင်းပါတယ်။
+
+ဥပမာများ:
+
+process.nextTick() callbacks
+
+Promise.then(), Promise.catch(), Promise.finally() callbacks များ
+
+💡 အလုပ်လုပ်ပုံ အနှစ်ချုပ် (Summary of Execution)
+Main Code (Call Stack) ပြီးဆုံးခြင်း: သင့်ရဲ့ ပုံမှန် synchronous JavaScript code တွေ အားလုံး (Call Stack ထဲမှာရှိတဲ့) အလုပ်လုပ်ပြီးစီးသွားတဲ့အခါ။
+
+Microtasks လုပ်ဆောင်ခြင်း: Event Loop က Microtask Queue (nextTick & Promise) ထဲက callbacks တွေကို အားလုံး အလုပ်လုပ်စေပြီး ရှင်းလင်းပါတယ်။
+
+Macrotasks (Event Loop) တစ်ပတ်လည်ခြင်း: ထို့နောက်မှသာ Event Loop ရဲ့ ပထမဆုံး Phase
+ (ဥပမာ- Timer Phase) ထဲက Macrotask (callback) ကို တစ်ခုယူပြီး Call Stack ထဲကို ပို့ဆောင် လုပ်ဆောင်စေပါတယ်။
+
+
+Microtasks ပြန်လည်လုပ်ဆောင်ခြင်း: Macrotask တစ်ခု ပြီးသွားတဲ့အခါတိုင်း၊
+ Event Loop ဟာ Microtask Queue ကို ပြန်လာစစ်ပြီး ရှင်းလင်းပါတယ်။ ပြီးမှ နောက်ထပ် Macrotask Phase ကို ဆက်သွားပါတယ်။
+
+Event Queue ဟာ JavaScript ရဲ့ single-threaded သဘာဝကို မထိခိုက်စေဘဲ၊
+ asynchronous လုပ်ဆောင်ချက်တွေကို ထိထိရောက်ရောက် စီမံခန့်ခွဲနိုင်ဖို့ အဓိကသော့ချက် ဖြစ်ပါတယ်။
+
+ 

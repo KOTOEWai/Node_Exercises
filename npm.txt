@@ -1,0 +1,293 @@
+npm
+===
+
+npm ဆိုတာ Node Package Manager ကို အတိုကောက်ခေါ်တာဖြစ်ပြီး၊ ၎င်းဟာ Node.js အတွက် အသုံးပြုတဲ့ package manager တစ်ခု ဖြစ်ပါတယ်။
+
+အဓိကအားဖြင့် npm မှာ လုပ်ဆောင်ချက် (၂) ခု ရှိပါတယ်။
+
+Repository (ဒေတာဘေ့စ်): JavaScript developers တွေ ဖန်တီးထားတဲ့ packages/modules (ကုဒ်အစုအဝေး) တွေကို သိမ်းဆည်းထားတဲ့ အွန်လိုင်း repository တစ်ခု။
+
+Command Line Tool (CLI): သင့်ရဲ့ project ထဲမှာ အဲဒီ packages တွေကို install လုပ်ဖို့၊ စီမံခန့်ခွဲဖို့၊ နဲ့ ထုတ်ဝေဖို့ (publish) အသုံးပြုတဲ့ command-line tool တစ်ခု။
+
+💻 npm ရဲ့ အဓိက အခန်းကဏ္ဍများ
+npm ကို အဓိကအားဖြင့် အောက်ပါ လုပ်ငန်းဆောင်တာတွေအတွက် အသုံးပြုပါတယ်။
+
+၁။ Dependency Management (မှီခိုမှု စီမံခန့်ခွဲခြင်း)
+သင့်ရဲ့ project တစ်ခုကို ဖန်တီးတဲ့အခါ၊ သင့်ရဲ့ ကုဒ်အားလုံးကို ကိုယ်တိုင်ရေးစရာ မလိုဘဲ အခြား developers တွေ ရေးထားတဲ့ function တွေ (packages) ကို အလွယ်တကူ ယူသုံးနိုင်ပါတယ်။
+
+Install လုပ်ခြင်း: npm install <package-name> command ကို သုံးပြီး လိုအပ်တဲ့ package တွေကို project ထဲကို ထည့်သွင်းနိုင်ပါတယ်။
+
+Dependencies ခြေရာခံခြင်း: package.json လို့ခေါ်တဲ့ ဖိုင်ထဲမှာ သင့် project က ဘယ် packages တွေကို သုံးထားတယ်၊ ဘယ် version တွေကို သုံးထားတယ်ဆိုတာကို မှတ်တမ်းတင်ပေးပါတယ်။
+
+၂။ Code Sharing (ကုဒ် မျှဝေခြင်း)
+npm ဟာ developer တွေအတွက် သူတို့ရဲ့ ကိုယ်ပိုင် packages တွေ (ကုဒ် module တွေ) ကို အွန်လိုင်း repository မှာ publish လုပ်ပြီး၊ အခြားသူတွေကို မျှဝေသုံးစွဲခွင့် ပေးပါတယ်။
+
+၃။ Running Scripts (Script များ စီမံခန့်ခွဲခြင်း)
+package.json ဖိုင်ထဲမှာ သင့်ရဲ့ project နဲ့ သက်ဆိုင်တဲ့ custom command တွေကို (ဥပမာ- test run လုပ်တာ၊ build လုပ်တာ) scripts အောက်မှာ သတ်မှတ်နိုင်ပြီး၊ npm run <script-name> command နဲ့ အလွယ်တကူ ခေါ်သုံးနိုင်ပါတယ်။
+
+📦 npm Package ဆိုတာ ဘာလဲ
+npm package ဆိုတာဟာ Node.js project တွေအတွက် ရည်ရွယ်ပြီး ဖန်တီးထားတဲ့၊ ပြန်လည် အသုံးပြုနိုင်တဲ့ ကုဒ် module ဒါမှမဟုတ် library တစ်ခု ဖြစ်ပါတယ်။
+
+ဥပမာအားဖြင့်-
+
+Express.js: Web server တွေ ဆောက်ဖို့အတွက် package
+
+React: User interfaces တွေ ဆောက်ဖို့အတွက် library
+
+Lodash: JavaScript မှာ အသုံးများတဲ့ utility functions တွေ စုစည်းထားတဲ့ package
+
+💡 npm ဘယ်လို စတင်ပေါ်ပေါက်လာတာလဲ
+npm ကို 2010 ခုနှစ် မှာ Isaac Schlueter က Node.js နဲ့အတူ စတင်ခဲ့တာ ဖြစ်ပါတယ်။ Node.js ရဲ့ စွမ်းဆောင်ရည်ကို တိုးချဲ့ဖို့၊ ကုဒ်အပိုင်းအစတွေ (modules) ကို စနစ်တကျ ခွဲဝေသုံးစွဲဖို့ လိုအပ်လာတာကြောင့် npm ကို ဖန်တီးခဲ့တာ ဖြစ်ပါတယ်။
+
+
+
+========================================================================================================================================================================================================
+Package.json 
+
+
+package.json ဆိုတာ Node.js နဲ့ npm (Node Package Manager) ကို အသုံးပြုတဲ့ တိုင်းရင်းသားတိုင်းမှာ မရှိမဖြစ် လိုအပ်တဲ့ ဖိုင်တစ်ခု ဖြစ်ပါတယ်။
+
+ဒါဟာ သင့်ရဲ့ project ဒါမှမဟုတ် package ရဲ့ metadata (အချက်အလက်) အားလုံးကို JSON format နဲ့ မှတ်တမ်းတင်ထားတဲ့ ဖိုင်တစ်ခုပါ။
+ သင့်ရဲ့ project အတွက် စီမံခန့်ခွဲမှု ဖိုင် (configuration file) လို့လည်း ခေါ်နိုင်ပါတယ်။
+
+🔑 package.json ရဲ့ အဓိက အခန်းကဏ္ဍများ
+package.json ဖိုင်ဟာ သင့်ရဲ့ project ကို ဖော်ပြခြင်း၊ စီမံခန့်ခွဲခြင်း နဲ့ အခြားသူများနဲ့ မျှဝေခြင်းတွေမှာ အရေးပါတဲ့ အခန်းကဏ္ဍကနေ ပါဝင်ပါတယ်။
+
+၁။ Project Metadata (ပရောဂျက် အချက်အလက်)
+သင့်ရဲ့ project အကြောင်း အခြေခံအချက်အလက်တွေအားလုံးကို ဖော်ပြပေးပါတယ်။
+
+name: Project ရဲ့ နာမည် (အမြဲတမ်း lowercase နဲ့ တစ်လုံးချင်း ခွဲရေးရမယ်)။
+
+version: Project ရဲ့ လက်ရှိ ဗားရှင်းနံပါတ် (Semantic Versioning ဖြင့် ရေးရမယ်၊ ဥပမာ- 1.0.0)။
+
+description: Project ရဲ့ အတိုချုပ် ဖော်ပြချက်။
+
+main: Project ကို စတင်ဝင်ရောက်ရာ အဓိကဖိုင် (entry point) ရဲ့ လမ်းကြောင်း (ဥပမာ- "index.js")။
+
+author: Project ရဲ့ ဖန်တီးသူ။
+
+license: Project ရဲ့ လိုင်စင် (ဥပမာ- "ISC" ဒါမှမဟုတ် "MIT")။
+
+၂။ Dependency Management (မှီခိုမှု စီမံခန့်ခွဲခြင်း)
+သင့် project က အသုံးပြုထားတဲ့ ပြင်ပ packages တွေနဲ့ သူတို့ရဲ့ ဗားရှင်းတွေကို မှတ်တမ်းတင်ထားပါတယ်။
+
+dependencies: Production (လက်တွေ့ အသုံးပြုနေတဲ့) ပတ်ဝန်းကျင်မှာ လိုအပ်တဲ့ packages တွေ။ 
+ဥပမာ- Web server တစ်ခုဆောက်ဖို့ လိုအပ်တဲ့ express package။
+
+ဥပမာ: "express": "^4.17.1"
+
+devDependencies: Development (ကုဒ်ရေးသားခြင်း/စမ်းသပ်ခြင်း) အတွက်သာ လိုအပ်ပြီး၊ Production မှာ
+ မလိုအပ်တဲ့ packages တွေ။ ဥပမာ- Testing tools တွေ၊ Linters တွေ။
+
+
+ဥပမာ: "jest": "^27.4.7"
+
+၃။ Scripts (အမိန့်များ သတ်မှတ်ခြင်း)
+Project ရဲ့ လုပ်ငန်းဆောင်တာတွေကို အလွယ်တကူ ခေါ်ယူနိုင်ဖို့အတွက် custom commands တွေကို သတ်မှတ်ပေးနိုင်တဲ့ အစိတ်အပိုင်း ဖြစ်ပါတယ်။
+
+scripts: npm run <script-name> နဲ့ run နိုင်တဲ့ အမိန့်တွေ။
+
+ဥပမာ:
+
+JSON
+
+"scripts": {
+  "start": "node index.js",
+  "test": "jest",
+  "dev": "nodemon index.js"
+}
+အပေါ်က ဥပမာအရ၊ သင်က command line မှာ npm run test လို့ ရိုက်လိုက်တာနဲ့ jest command ကို အလုပ်လုပ်သွားမှာ ဖြစ်ပါတယ်။
+
+📄 package.json ဘယ်လို ဖြစ်ပေါ်လာတာလဲ
+package.json ဖိုင်ကို npm init command ကို သုံးပြီး Node.js project အသစ် စတင်တဲ့အခါမှာ
+ အလိုအလျောက် ဖန်တီးနိုင်ပါတယ်။ ဒါ့အပြင်၊ ပြင်ပ packages တွေ install လုပ်တဲ့အခါတိုင်း
+  (ဥပမာ- npm install express --save or npm install jest --save-dev လို့ ခေါ်တဲ့အခါတိုင်း)၊
+   npm က ဒီဖိုင်ကို အလိုအလျောက် ပြင်ဆင် (update) ပေး ပြီး dependencies တွေကို မှတ်တမ်းတင်သွားတာ ဖြစ်ပါတယ်။
+
+
+
+
+=========================================================================================================================
+
+
+Node.js project တွေမှာ packages တွေကို သွင်းဖို့အတွက် npm (Node Package Manager) command-line tool ကို အသုံးပြုရပါတယ်။ packages သွင်းတဲ့အခါ အဓိကအားဖြင့် ပုံစံသုံးမျိုး ခွဲခြားနိုင်ပါတယ်- Local (Project အတွက်)၊ Global (စက်တစ်ခုလုံးအတွက်) နဲ့ Development အတွက် စသည်တို့ ဖြစ်ပါတယ်။
+
+💻 ၁။ Local Installation (Project အတွင်း ထည့်သွင်းခြင်း)
+ဒါဟာ အသုံးအများဆုံး ပုံစံဖြစ်ပြီး၊ သင့်ရဲ့ လက်ရှိ project တစ်ခုတည်းအတွက်သာ package ကို သွင်းတာပါ။
+
+Command
+Bash
+
+npm install <package-name>
+// ဒါမှမဟုတ် အတိုကောက်:
+npm i <package-name>
+ဖြစ်ပေါ်လာမှုများ (What Happens?)
+node_modules ဖိုဒါ: သွင်းလိုက်တဲ့ package နဲ့ သူတို့ရဲ့ မှီခိုမှု (dependencies) တွေကို လက်ရှိ project ဖိုဒါထဲက node_modules ဖိုဒါထဲမှာ သွားရောက် သိမ်းဆည်းပါတယ်။
+
+package.json Update: npm install က package ကို သွင်းပြီးပေမဲ့ --save flag မပါရင်၊ package.json ထဲက dependencies ထဲကို အလိုအလျောက် မှတ်တမ်းတင်ခြင်း မပြုပါဘူး (npm ဗားရှင်းအသစ်တွေမှာ --save ကို default ထည့်ပေးပါတယ်)။
+
+Dependency မှတ်တမ်းတင်ခြင်း: package.json ရဲ့ dependencies အပိုင်းမှာ package နာမည်နဲ့ ဗားရှင်းကို ထည့်သွင်းမှတ်တမ်းတင်ဖို့ အောက်ပါ command ကို သုံးရပါတယ်။
+
+Bash
+
+npm install <package-name> --save 
+// ဒါမှမဟုတ် အတိုကောက်:
+npm i <package-name> -S
+🛠️ ၂။ Development Dependencies (ရေးသားစဥ် လိုအပ်သည်များ)
+devDependencies ဆိုတာဟာ ကုဒ်ရေးသားခြင်း၊ စမ်းသပ်ခြင်း (testing) နဲ့ build လုပ်ခြင်း စတဲ့ development phase မှာသာ လိုအပ်ပြီး၊ Project ကို လက်တွေ့ run နေတဲ့ production environment မှာ မလိုအပ်တဲ့ packages တွေကို သွင်းဖို့ ဖြစ်ပါတယ်။
+
+Command
+Bash
+
+npm install <package-name> --save-dev
+// ဒါမှမဟုတ် အတိုကောက်:
+npm i <package-name> -D
+ဥပမာ
+jest (Testing framework)
+
+eslint (Code quality check tool)
+
+nodemon (Development အတွက် Server ကို restart လုပ်ပေးတဲ့ tool)
+
+🌐 ၃။ Global Installation (စက်တစ်ခုလုံးအတွက် ထည့်သွင်းခြင်း)
+အချို့ packages တွေဟာ command line ကနေ စက်တစ်ခုလုံး မှာ ဘယ်နေရာကနေမဆို ခေါ်သုံးနိုင်ဖို့အတွက် ရည်ရွယ်ပြီး ဖန်တီးထားတာ ဖြစ်ပါတယ်။ ဒါတွေကို Global သွင်းရပါတယ်။
+
+Command
+Bash
+
+npm install <package-name> --global
+// ဒါမှမဟုတ် အတိုကောက်:
+npm i <package-name> -g
+ဥပမာ
+create-react-app (React project တွေ ဖန်တီးတဲ့ tool)
+
+nodemon (အကယ်၍ Project တစ်ခုချင်းစီတိုင်းမှာ package.json ထဲ မထည့်ချင်ရင်)
+
+http-server (Local မှာ quick server တစ်ခု run ဖို့ tool)
+
+📋 package.json မှ Dependencies အားလုံး သွင်းခြင်း
+သင်က project တစ်ခုကို Git ကနေ clone ဆွဲယူလိုက်တဲ့အခါ node_modules ဖိုဒါဟာ ပျောက်နေမှာပါ။ ဒါပေမဲ့ package.json ဖိုင်ထဲမှာ လိုအပ်တဲ့ dependencies အားလုံး မှတ်တမ်းတင်ထားပြီးသား ဖြစ်ပါတယ်။
+
+package.json ထဲက dependencies နဲ့ devDependencies အားလုံးကို တစ်ပြိုင်နက်တည်း သွင်းဖို့အတွက် အောက်ပါ command ကို သုံးရပါတယ်။
+
+Bash
+
+npm install
+// ဒါမှမဟုတ် အတိုကောက်:
+npm i
+ဒီ command ကို run လိုက်ရင် npm က package.json ဖိုင်ကို ဖတ်ပြီး လိုအပ်တဲ့ packages အားလုံးကို node_modules ဖိုဒါထဲကို download ဆွဲထည့်ပေးမှာ ဖြစ်ပါတယ်။
+
+
+
+
+
+
+
+
+=============================================================================================================================================
+Global Packages
+
+
+Global Packages (သို့မဟုတ် Global Modules) ဆိုတာဟာ Node.js packages တွေဖြစ်ပြီး
+သင့်ရဲ့ ကွန်ပျူတာစက်ထဲမှာ နေရာတိုင်းကနေ (ဘယ် project folder ထဲမှာပဲဖြစ်ဖြစ်) command line ကနေ
+တိုက်ရိုက်ခေါ်သုံးနိုင်ဖို့ သွင်းထားတဲ့ packages တွေ ဖြစ်ပါတယ် 🌐။Project တစ်ခုတည်းအတွက် သီးသန့်မဟုတ်ဘဲ၊ 
+စက်တစ်ခုလုံးရဲ့ Command Line Interface (CLI) tools တွေအဖြစ် အသုံးပြုဖို့အတွက် ရည်ရွယ်ပါတယ်။
+🛠️ Global Packages သွင်းခြင်းGlobal package တစ်ခုကို သွင်းဖို့အတွက် npm ကို အောက်ပါ --global (သို့မဟုတ် အတိုကောက် -g) flag ဖြင့် အသုံးပြုရပါတယ်။
+  CommandBashnpm install <package-name> --global
+
+// ဒါမှမဟုတ် အတိုကောက်:
+npm i <package-name> 
+
+
+📌 သတိပြုရန်အချက်များLocation: Global packages တွေကို သင့်ရဲ့ project ရဲ့ node_modules ဖိုဒါထဲမှာ မထားပါဘူး။
+
+ ၎င်းတို့ကို သီးသန့်ဖြစ်တဲ့ system-wide directory (OS ပေါ် မူတည်ပြီး ကွဲပြားသည်) ထဲမှာ သွားရောက် သိမ်းဆည်းပါတယ်။
+
+Access: Global သွင်းထားတဲ့ package ထဲမှာပါတဲ့ Executable files (run နိုင်တဲ့ command) တွေကို သင့်ရဲ့ PATH environment variable ထဲကို ထည့်ပေးတဲ့အတွက်
+ဘယ်နေရာကနေမဆို CLI command အဖြစ် ခေါ်သုံးနိုင်တာ ဖြစ်ပါတယ်။
+  
+package.json နှင့် မသက်ဆိုင်ခြင်း: Global packages တွေဟာ
+သင့်ရဲ့ project အတွင်းက package.json ဖိုင်ရဲ့ dependencies ဒါမှမဟုတ် devDependencies အပိုင်းမှာ မှတ်တမ်းတင်ခံရခြင်း မရှိပါဘူး။
+
+💡 Global Packages ဥပမာများGlobal Packages တွေဟာ များသောအားဖြင့် Developer တွေရဲ့ အလုပ်တွေကို ပိုမိုလွယ်ကူစေဖို့ 
+   ရည်ရွယ်တဲ့ Utility/Scaffolding Tools တွေ ဖြစ်လေ့ရှိပါတယ်
+
+ 
+ Package Name,                =         အသုံးပြုပုံ
+                              =
+nodemon,                      =         Development စဉ်အတွင်း code ပြောင်းတိုင်း server ကို auto restart လုပ်ပေးတဲ့ tool။
+create-react-app,             =         React project အသစ်တွေကို စံပုံစံအတိုင်း အလိုအလျောက် စတင်ဖန်တီးပေးတဲ့ tool။
+http-server,                  =         Local machine မှာ Static files တွေအတွက် အမြန် server တစ်ခု run ဖို့ tool။
+npm-check-updates,            =         package.json ထဲက dependencies တွေရဲ့ နောက်ဆုံး version ကို စစ်ဆေးပေးတဲ့ tool။
+
+========================================================================================================================================
+
+npm Scripts ဆိုတာဟာ package.json ဖိုင်ထဲမှာ သတ်မှတ်ထားတဲ့ custom commands (ကိုယ့်ဘာသာ ဖန်တီးထားတဲ့ အမိန့်များ) ကို ဆိုလိုတာ ဖြစ်ပါတယ်။ 
+၎င်းတို့ဟာ သင့်ရဲ့ project အတွက် အသုံးများတဲ့ လုပ်ငန်းဆောင်တာတွေ (ဥပမာ- project စတင် run တာ၊ ကုဒ်တွေကို စစ်ဆေးတာ၊ ဒါမှမဟုတ် build လုပ်တာ) ကို
+ အလွယ်တကူနဲ့ စနစ်တကျ လုပ်ဆောင်နိုင်ဖို့ ကူညီပေးပါတယ်။
+
+
+ 🛠️ package.json တွင် Scripts သတ်မှတ်ခြင်း
+
+ package.json ဖိုင်ရဲ့ scripts အပိုင်းထဲမှာ key: value ပုံစံနဲ့ Scripts တွေကို သတ်မှတ်ရပါတယ်
+
+ key (သော့): ဒါဟာ သင် command line မှာ ခေါ်သုံးမယ့် Script နာမည် (ဥပမာ- start, test, build) ဖြစ်ပါတယ်။
+
+value (တန်ဖိုး): ဒါဟာ အဲဒီ Script ကို ခေါ်လိုက်တဲ့အခါ တကယ်တမ်း အလုပ်လုပ်စေချင်တဲ့ command (ဥပမာ- node index.js ဒါမှမဟုတ် jest) ဖြစ်ပါတယ်।
+
+
+
+"scripts": {
+  "start": "node index.js",
+  "test": "jest",
+  "build": "babel src -d dist",
+  "lint": "eslint ."
+}
+
+
+💻 npm Scripts များကို အသုံးပြုပုံ
+Scripts တွေကို npm run command ကို သုံးပြီး ခေါ်ယူ လုပ်ဆောင်ရပါတယ်။
+
+
+၁။ npm run <script-name>
+သင် သတ်မှတ်ထားတဲ့ Script အများစုကို အောက်ပါ command ပုံစံအတိုင်း အသုံးပြုရပါတယ်။
+
+
+# "build" script ကို run ခြင်း
+npm run build 
+
+# "lint" script ကို run ခြင်း
+npm run lint
+
+
+အထူး Scripts များ (Special Scripts)
+
+အချို့သော Script နာမည်များ (ဥပမာ- start, test) အတွက် run ဆိုတဲ့ စကားလုံးကို ထည့်စရာမလိုဘဲ တိုက်ရိုက် ခေါ်သုံးနိုင်ပါတယ်။
+
+
+Script Name,         Command,      လုပ်ဆောင်ပုံ
+start,              npm start,      Project ကို စတင် run ခြင်း (ဥပမာ- Web server စတင်ခြင်း)။
+test,               npm test,       Project ရဲ့ စမ်းသပ်မှု (tests) တွေကို run ခြင်း။
+
+
+၃။ Hook Scripts (Lifecycle Scripts)
+
+npm မှာ package lifecycle  နဲ့ ဆက်စပ်နေတဲ့ Hook Scripts တွေ ရှိပါတယ်။ ဥပမာ-
+
+preinstall: Package မသွင်းခင် အလုပ်လုပ်ရမယ့် command များ။
+
+postinstall: Package သွင်းပြီးနောက် အလုပ်လုပ်ရမယ့် command များ။
+
+pretest: npm test မ run ခင် အလုပ်လုပ်ရမယ့် command များ။
+
+
+
+npm Scripts ရဲ့ အားသာချက်များ
+
+
+လွယ်ကူခြင်း: ရှည်လျားပြီး မှတ်ရခက်တဲ့ command တွေကို နာမည်တိုတစ်ခု (ဥပမာ- npm start) နဲ့ အစားထိုးနိုင်ပါတယ်။
+
+Portability (သယ်ဆောင်ရလွယ်ကူခြင်း): package.json ဖိုင်ပါလာတဲ့ မည်သည့် project မဆို၊ npm install သွင်းပြီးတာနဲ့ 
+npm run build လို commands တွေဟာ ကွန်ပျူတာ အမျိုးအစားမရွေး (Windows, macOS, Linux) အဆင်ပြေစွာ အလုပ်လုပ်ပါမယ်။
+
+
